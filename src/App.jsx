@@ -7,6 +7,7 @@ import {
 import Users from "./pages/Users";
 import DashboardLayout from "./layouts/DashboardLayout";
 import RoverManagement from "./pages/RoverManagement";
+import Tasks from "./pages/Tasks";
 
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
@@ -27,6 +28,16 @@ function App() {
             </ProtectedRoute>
           }
         />
+  <Route
+  path="/tasks"
+  element={
+    <ProtectedRoute permission="tasks">
+      <DashboardLayout>
+        <Tasks />
+      </DashboardLayout>
+    </ProtectedRoute>
+  }
+/>
         <Route
   path="/rover"
   element={

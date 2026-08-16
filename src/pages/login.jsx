@@ -22,21 +22,53 @@ function Login() {
     setError("");
 
     // Temporary login for frontend development
-    if (
-      email === "admin@egiscare.com" &&
-      password === "admin123"
-    ) {
-      login({
-  name: "Admin",
-  email: email,
-  role: "admin",
-});
+    // Temporary login for frontend development
 
-      navigate("/dashboard");
-      return;
-    }
+// Admin login
+if (
+  email === "admin@egiscare.com" &&
+  password === "admin123"
+) {
+  login({
+    name: "Admin",
+    email: email,
+    role: "admin",
+  });
 
-    setError("Invalid email or password.");
+  navigate("/dashboard");
+  return;
+}
+
+// Caretaker login
+if (
+  email === "caretaker@egiscare.com" &&
+  password === "caretaker123"
+) {
+  login({
+    name: "Caretaker",
+    email: email,
+    role: "caretaker",
+  });
+
+  navigate("/dashboard");
+  return;
+}
+// Viewer login
+if (
+  email === "viewer@egiscare.com" &&
+  password === "viewer123"
+) {
+  login({
+    name: "Viewer",
+    email: email,
+    role: "viewer",
+  });
+
+  navigate("/dashboard");
+  return;
+}
+
+setError("Invalid email or password.");
   };
 
   return (

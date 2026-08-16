@@ -902,3 +902,431 @@
   color: #dc2626;
   font-size: 10px;
 }
+/* Tasks & Medicine */
+
+.tasks-page {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.tasks-role-badge {
+  align-self: center;
+  padding: 8px 12px;
+  border: 1px solid #dce5f2;
+  border-radius: 7px;
+  background: #f5f8fc;
+  color: #4b6380;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.task-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.task-summary-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  border: 1px solid #e3e7ed;
+  border-radius: 10px;
+  padding: 17px;
+}
+
+.task-summary-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-summary-icon.blue {
+  background: #eef4ff;
+  color: #2563eb;
+}
+
+.task-summary-icon.orange {
+  background: #fff4e8;
+  color: #e17a19;
+}
+
+.task-summary-icon.purple {
+  background: #f1edff;
+  color: #7254d6;
+}
+
+.task-summary-icon.green {
+  background: #eaf8ef;
+  color: #21834f;
+}
+
+.task-summary-card div:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-summary-card span {
+  color: #7a8595;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.task-summary-card strong {
+  margin-top: 4px;
+  font-size: 23px;
+}
+
+.task-summary-card small {
+  margin-top: 3px;
+  color: #8994a2;
+  font-size: 9px;
+}
+
+.tasks-section {
+  background: #ffffff;
+  border: 1px solid #e3e7ed;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.tasks-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 17px 18px;
+  border-bottom: 1px solid #edf0f3;
+}
+
+.tasks-section-header h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.tasks-section-header .section-label {
+  margin-bottom: 4px;
+}
+
+.task-count {
+  color: #7b8796;
+  font-size: 10px;
+}
+
+.tasks-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tasks-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+.tasks-table th {
+  padding: 11px 15px;
+  text-align: left;
+  background: #f8fafc;
+  color: #7b8796;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.tasks-table td {
+  padding: 13px 15px;
+  border-top: 1px solid #edf0f3;
+  font-size: 11px;
+}
+
+.task-name {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.task-type-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  background: #eef4ff;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.task-name strong {
+  font-size: 11px;
+}
+
+.resident-name {
+  color: #374151;
+  font-weight: 500;
+}
+
+.task-type {
+  color: #7b8796;
+}
+
+.scheduled-time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #5f6b7b;
+  white-space: nowrap;
+}
+
+.priority-badge {
+  display: inline-flex;
+  padding: 4px 7px;
+  border-radius: 5px;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.priority-badge.high {
+  background: #fff0f0;
+  color: #dc2626;
+}
+
+.priority-badge.medium {
+  background: #fff7e8;
+  color: #c26b0a;
+}
+
+.priority-badge.low {
+  background: #eef6ff;
+  color: #2563eb;
+}
+
+.task-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 7px;
+  border-radius: 5px;
+  font-size: 9px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.task-status span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.task-status.pending {
+  background: #fff7e8;
+  color: #b76a0b;
+}
+
+.task-status.pending span {
+  background: #f59e0b;
+}
+
+.task-status.in-progress {
+  background: #eef4ff;
+  color: #2563eb;
+}
+
+.task-status.in-progress span {
+  background: #2563eb;
+}
+
+.task-status.completed {
+  background: #eaf8ef;
+  color: #21834f;
+}
+
+.task-status.completed span {
+  background: #22c55e;
+}
+
+.task-action-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 0;
+  border-radius: 6px;
+  padding: 7px 9px;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.task-action-button.start {
+  background: #eef4ff;
+  color: #2563eb;
+}
+
+.task-action-button.complete {
+  background: #eaf8ef;
+  color: #21834f;
+}
+
+.completed-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #21834f;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+/* Medicine */
+
+.medicine-section {
+  margin-bottom: 0;
+}
+
+.medicine-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  padding: 16px;
+}
+
+.medicine-card {
+  border: 1px solid #e3e7ed;
+  border-radius: 9px;
+  padding: 16px;
+}
+
+.medicine-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.medicine-icon {
+  width: 37px;
+  height: 37px;
+  border-radius: 8px;
+  background: #fff4e8;
+  color: #e17a19;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.medicine-status {
+  padding: 5px 7px;
+  border-radius: 5px;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.medicine-status.pending {
+  background: #fff7e8;
+  color: #b76a0b;
+}
+
+.medicine-status.delivered {
+  background: #eaf8ef;
+  color: #21834f;
+}
+
+.medicine-status.scheduled {
+  background: #eef4ff;
+  color: #2563eb;
+}
+
+.medicine-card h3 {
+  margin: 14px 0;
+  font-size: 13px;
+}
+
+.medicine-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.medicine-details div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.medicine-details span {
+  color: #8994a2;
+  font-size: 9px;
+}
+
+.medicine-details strong {
+  color: #374151;
+  font-size: 10px;
+}
+
+.deliver-button {
+  width: 100%;
+  margin-top: 16px;
+  height: 34px;
+  border: 0;
+  border-radius: 6px;
+  background: #2563eb;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.deliver-button:hover {
+  background: #1d4ed8;
+}
+
+.medicine-delivered,
+.medicine-scheduled {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding: 9px;
+  border-radius: 6px;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.medicine-delivered {
+  background: #eaf8ef;
+  color: #21834f;
+}
+
+.medicine-scheduled {
+  background: #eef4ff;
+  color: #2563eb;
+}
+
+/* Tasks responsive */
+
+@media (max-width: 1100px) {
+  .task-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .medicine-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .task-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tasks-role-badge {
+    align-self: flex-start;
+  }
+}

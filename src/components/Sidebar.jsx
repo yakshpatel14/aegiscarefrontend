@@ -71,11 +71,11 @@ function Sidebar() {
         <p className="nav-section">CARE & LOGISTICS</p>
 
         {hasPermission("tasks") && (
-          <a href="#" className="nav-item">
-            <ClipboardList size={18} />
-            <span>Tasks</span>
-          </a>
-        )}
+  <Link to="/tasks" className="nav-item">
+    <ClipboardList size={18} />
+    <span>Tasks & Medicine</span>
+  </Link>
+)}
 
         {hasPermission("medicineDelivery") && (
           <a href="#" className="nav-item">
