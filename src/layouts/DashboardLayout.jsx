@@ -1,13 +1,19 @@
+import { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import Topbar from "../components/Topbar";
 
 function DashboardLayout({ children }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div className="app-layout">
-      <Sidebar />
+      <Sidebar
+        mobileMenuOpen={mobileMenuOpen}
+        onNavigate={() => setMobileMenuOpen(false)}
+      />
 
       <div className="main-area">
-        <Topbar />
+        <Topbar onMenu={() => setMobileMenuOpen((open) => !open)} />
 
         <main className="page-content">
           {children}

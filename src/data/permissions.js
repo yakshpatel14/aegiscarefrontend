@@ -13,7 +13,7 @@ export const ROLE_PERMISSIONS = {
     settings: true,
   },
 
-  caretaker: {
+  user: {
     dashboard: true,
     roverManagement: true,
     roverControl: false,
@@ -21,23 +21,10 @@ export const ROLE_PERMISSIONS = {
     tasks: true,
     medicineDelivery: true,
     history: true,
-    analytics: false,
-    alerts: true,
-    users: false,
-    settings: false,
-  },
-
-  viewer: {
-    dashboard: true,
-    roverManagement: true,
-    roverControl: false,
-    camera: true,
-    tasks: false,
-    medicineDelivery: false,
-    history: true,
     analytics: true,
     alerts: true,
     users: false,
-    settings: false,
+    settings: true,
+    billing: true,
   },
 };

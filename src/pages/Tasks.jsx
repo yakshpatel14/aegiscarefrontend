@@ -74,13 +74,13 @@ function Tasks() {
           <h2>Tasks & Medicine Delivery</h2>
 
           <p className="page-description">
-            Manage caretaker tasks and medicine deliveries for
-            EGISCARE care recipients.
+            Manage assigned tasks and medicine deliveries for
+            AEGISCARE users and operational workflows.
           </p>
         </div>
 
         <div className="tasks-role-badge">
-          {user?.role === "admin" ? "Administrator" : "Caretaker"}
+          {user?.role === "admin" ? "Administrator" : "User"}
         </div>
       </div>
 
@@ -328,7 +328,7 @@ function Tasks() {
                 </div>
 
                 <div>
-                  <span>Caretaker</span>
+                  <span>Owner</span>
                   <strong>{medicine.caretaker}</strong>
                 </div>
 

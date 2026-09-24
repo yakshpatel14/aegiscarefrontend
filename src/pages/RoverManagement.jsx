@@ -1,231 +1,224 @@
 import {
-  Bot,
-  Battery,
-  Wifi,
-  MapPin,
-  Clock3,
   Activity,
+  BatteryCharging,
+  Bot,
+  Clock3,
+  Gauge,
+  MapPin,
   Navigation,
   RefreshCw,
+  ShieldCheck,
+  Wifi,
 } from "lucide-react";
+import { useState } from "react";
 
 function RoverManagement() {
+  const [lastRefresh, setLastRefresh] = useState("just now");
+
+  const refreshStatus = () => {
+    setLastRefresh("just now");
+  };
+
+  const fleetMetrics = [
+    { label: "Fleet online", value: "24/26", detail: "2 in maintenance", icon: Wifi, tone: "cyan" },
+    { label: "Avg battery", value: "84%", detail: "Across active units", icon: BatteryCharging, tone: "green" },
+    { label: "Dispatch time", value: "03:42", detail: "Fastest route cycle", icon: Clock3, tone: "purple" },
+    { label: "Autonomy", value: "91%", detail: "AI route confidence", icon: Gauge, tone: "gold" },
+  ];
+
+  const roverUnits = [
+    { id: "RVR-001", name: "Astra Unit", status: "online", battery: 82, route: "Zone 03 • Ward A", signal: "Strong", progress: 68 },
+    { id: "RVR-014", name: "Nimbus Unit", status: "charging", battery: 46, route: "Dock 2 • Service Bay", signal: "Moderate", progress: 41 },
+    { id: "RVR-023", name: "Pioneer Unit", status: "online", battery: 91, route: "Zone 05 • Pharmacy", signal: "Strong", progress: 86 },
+  ];
+
+  const serviceSummary = [
+    { label: "Battery health", value: "98.2%" },
+    { label: "Signal quality", value: "4.8/5" },
+    { label: "Route accuracy", value: "97.1%" },
+    { label: "Last service", value: "12 days ago" },
+  ];
+
   return (
-    <div className="rover-management-page">
-
-      <div className="page-heading">
-        <div>
-          <p className="eyebrow">ROVER OPERATIONS</p>
-
-          <h2>Rover Management</h2>
-
-          <p className="page-description">
-            Monitor the health, connection and current state of your
-            EGISCARE rover.
+    <div className="fleet-manager-page">
+      <div className="fleet-hero">
+        <div className="fleet-hero-copy">
+          <div className="hero-kicker">
+            <span className="hero-live-dot" /> FLEET MANAGER
+          </div>
+          <h2>
+            Autonomous fleet <em>command</em>
+          </h2>
+          <p>
+            Mission control for delivery, monitoring, and field support across the AegisCare network.
           </p>
+
+          <div className="hero-actions">
+            <button className="hero-primary">
+              <Navigation size={14} /> Dispatch route
+            </button>
+            <button className="hero-secondary">
+              <ShieldCheck size={14} /> Security overview
+            </button>
+          </div>
         </div>
 
-        <button className="secondary-action">
-          <RefreshCw size={15} />
-          Refresh Status
-        </button>
+        <div className="fleet-hero-visual">
+          <div className="fleet-iso-card">
+            <div className="fleet-iso-grid" />
+            <div className="fleet-iso-sweep" />
+            <div className="fleet-rover-model">
+              <div className="rover-model-shell">
+                <div className="rover-model-head" />
+                <div className="rover-model-eye" />
+                <div className="rover-model-eye right" />
+                <div className="rover-model-body" />
+              </div>
+            </div>
+            <div className="fleet-iso-tag">Live mission</div>
+          </div>
+        </div>
       </div>
 
-      {/* Rover overview */}
+      <div className="fleet-metrics">
+        {fleetMetrics.map(({ label, value, detail, icon: Icon, tone }) => (
+          <div key={label} className={`fleet-metric-card ${tone}`}>
+            <div className="metric-icon-wrap">
+              <Icon size={18} />
+            </div>
+            <div>
+              <span>{label}</span>
+              <strong>{value}</strong>
+              <small>{detail}</small>
+            </div>
+          </div>
+        ))}
+      </div>
 
-      <div className="rover-overview-card">
-
-        <div className="rover-main-info">
-
-          <div className="large-rover-icon">
-            <Bot size={32} />
+      <div className="fleet-grid">
+        <section className="fleet-panel fleet-panel-large">
+          <div className="panel-header">
+            <div>
+              <p className="panel-kicker">CURRENT OPERATION</p>
+              <h3>Medicine delivery route</h3>
+            </div>
+            <button className="secondary-action" onClick={refreshStatus}>
+              <RefreshCw size={15} />
+              Refresh
+            </button>
           </div>
 
-          <div>
-            <div className="rover-title-row">
-              <h3>EGISCARE Rover</h3>
+          <div className="route-visual">
+            <div className="route-points">
+              <div className="route-point start">
+                <span className="map-pin"><MapPin size={14} /></span>
+                <div>
+                  <small>Origin</small>
+                  <strong>Pharmacy hub</strong>
+                </div>
+              </div>
 
-              <span className="rover-status online">
-                <span className="status-dot"></span>
-                Online
+              <div className="route-line">
+                <span className="route-travel" />
+              </div>
+
+              <div className="route-point end">
+                <span className="map-pin"><MapPin size={14} /></span>
+                <div>
+                  <small>Destination</small>
+                  <strong>Ward A • Room 203</strong>
+                </div>
+              </div>
+            </div>
+
+            <div className="operation-progress">
+              <div className="progress-label">
+                <span>Mission progress</span>
+                <strong>68%</strong>
+              </div>
+              <div className="progress-track">
+                <span style={{ width: "68%" }} />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="fleet-panel">
+          <div className="panel-header compact">
+            <div>
+              <p className="panel-kicker">SYSTEM STATUS</p>
+              <h3>Fleet overview</h3>
+            </div>
+          </div>
+
+          <div className="system-summary">
+            {serviceSummary.map((item) => (
+              <div key={item.label} className="summary-row">
+                <span>{item.label}</span>
+                <strong>{item.value}</strong>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <div className="rover-collection">
+        {roverUnits.map((rover) => (
+          <article key={rover.id} className="rover-unit-card">
+            <div className="rover-card-top">
+              <div className="rover-mini">
+                <Bot size={18} />
+              </div>
+              <span className={`rover-badge ${rover.status}`}>
+                {rover.status === "online" ? "Online" : "Charging"}
               </span>
             </div>
 
-            <p>RVR-001</p>
-
-            <span className="connection-text">
-              <Wifi size={13} />
-              Connected to EGISCARE backend
-            </span>
-          </div>
-
-        </div>
-
-        <div className="rover-overview-actions">
-          <button className="secondary-action">
-            <Navigation size={15} />
-            View Location
-          </button>
-        </div>
-
-      </div>
-
-      {/* Rover metrics */}
-
-      <div className="rover-metrics">
-
-        <div className="rover-metric-card">
-          <div className="metric-icon green">
-            <Battery size={19} />
-          </div>
-
-          <div>
-            <span>Battery</span>
-            <strong>82%</strong>
-            <small>Good condition</small>
-          </div>
-        </div>
-
-        <div className="rover-metric-card">
-          <div className="metric-icon blue">
-            <Wifi size={19} />
-          </div>
-
-          <div>
-            <span>Connection</span>
-            <strong>Stable</strong>
-            <small>Connected via backend</small>
-          </div>
-        </div>
-
-        <div className="rover-metric-card">
-          <div className="metric-icon purple">
-            <Clock3 size={19} />
-          </div>
-
-          <div>
-            <span>Uptime</span>
-            <strong>14h 32m</strong>
-            <small>Since today</small>
-          </div>
-        </div>
-
-        <div className="rover-metric-card">
-          <div className="metric-icon orange">
-            <Activity size={19} />
-          </div>
-
-          <div>
-            <span>Current Task</span>
-            <strong>Delivery</strong>
-            <small>Medicine delivery</small>
-          </div>
-        </div>
-
-      </div>
-
-      {/* Current operation */}
-
-      <div className="rover-management-grid">
-
-        <section className="rover-panel">
-
-          <div className="panel-heading">
-            <div>
-              <p className="section-label">CURRENT OPERATION</p>
-              <h3>Medicine Delivery</h3>
-            </div>
-
-            <span className="operation-badge">
-              In Progress
-            </span>
-          </div>
-
-          <div className="operation-route">
-
-            <div className="route-point">
-              <div className="route-icon start">
-                <MapPin size={16} />
-              </div>
-
+            <div className="rover-card-main">
               <div>
-                <span>From</span>
-                <strong>Medicine Storage</strong>
+                <small>{rover.id}</small>
+                <h4>{rover.name}</h4>
+              </div>
+              <div className="rover-signal">
+                <Wifi size={12} /> {rover.signal}
               </div>
             </div>
 
-            <div className="route-line"></div>
-
-            <div className="route-point">
-              <div className="route-icon destination">
-                <MapPin size={16} />
-              </div>
-
+            <div className="rover-card-meta">
               <div>
-                <span>Destination</span>
-                <strong>Care Room 203</strong>
+                <span>Battery</span>
+                <strong>{rover.battery}%</strong>
+              </div>
+              <div>
+                <span>Zone</span>
+                <strong>{rover.route}</strong>
               </div>
             </div>
 
-          </div>
-
-          <div className="operation-progress">
-
-            <div className="progress-label">
-              <span>Task progress</span>
-              <strong>68%</strong>
+            <div className="rover-progress-block">
+              <div className="progress-label">
+                <span>Route sync</span>
+                <strong>{rover.progress}%</strong>
+              </div>
+              <div className="progress-track">
+                <span style={{ width: `${rover.progress}%` }} />
+              </div>
             </div>
-
-            <div className="progress-track">
-              <div
-                className="progress-fill"
-                style={{ width: "68%" }}
-              ></div>
-            </div>
-
-          </div>
-
-        </section>
-
-        {/* System information */}
-
-        <section className="rover-panel">
-
-          <div className="panel-heading">
-            <div>
-              <p className="section-label">SYSTEM</p>
-              <h3>Rover Information</h3>
-            </div>
-          </div>
-
-          <div className="system-info-list">
-
-            <div>
-              <span>Rover ID</span>
-              <strong>RVR-001</strong>
-            </div>
-
-            <div>
-              <span>Firmware</span>
-              <strong>v1.0.4</strong>
-            </div>
-
-            <div>
-              <span>Controller</span>
-              <strong>Raspberry Pi</strong>
-            </div>
-
-            <div>
-              <span>Backend</span>
-              <strong>Connected</strong>
-            </div>
-
-          </div>
-
-        </section>
-
+          </article>
+        ))}
       </div>
 
+      <div className="fleet-footer-bar">
+        <div className="footer-info">
+          <Activity size={14} /> {lastRefresh}
+        </div>
+        <div className="footer-info">
+          <MapPin size={14} /> 26 active nodes
+        </div>
+        <div className="footer-info">
+          <ShieldCheck size={14} /> security locked
+        </div>
+      </div>
     </div>
   );
 }

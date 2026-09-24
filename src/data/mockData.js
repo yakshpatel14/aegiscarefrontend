@@ -1,5 +1,5 @@
 export const roverData = {
-  name: "EGISCARE Rover",
+  name: "AEGISCARE Rover",
   id: "RVR-001",
   status: "Online",
   battery: 82,
@@ -44,7 +44,7 @@ export const taskData = [
     type: "Medicine",
     scheduledTime: "09:30 AM",
     priority: "High",
-    caretaker: "Caretaker",
+    caretaker: "User",
     status: "Pending",
   },
   {
@@ -54,7 +54,7 @@ export const taskData = [
     type: "Care",
     scheduledTime: "10:00 AM",
     priority: "Medium",
-    caretaker: "Caretaker",
+    caretaker: "User",
     status: "In Progress",
   },
   {
@@ -64,7 +64,7 @@ export const taskData = [
     type: "Medicine",
     scheduledTime: "01:00 PM",
     priority: "High",
-    caretaker: "Caretaker",
+    caretaker: "User",
     status: "Completed",
   },
   {
@@ -74,7 +74,7 @@ export const taskData = [
     type: "Safety",
     scheduledTime: "02:30 PM",
     priority: "Low",
-    caretaker: "Caretaker",
+    caretaker: "User",
     status: "Pending",
   },
   {
@@ -84,7 +84,7 @@ export const taskData = [
     type: "Care",
     scheduledTime: "05:00 PM",
     priority: "Medium",
-    caretaker: "Caretaker",
+    caretaker: "User",
     status: "Pending",
   },
 ];
@@ -96,7 +96,7 @@ export const medicineData = [
     resident: "Mr. Rajesh Patel",
     dosage: "1 tablet",
     scheduledTime: "09:30 AM",
-    caretaker: "Caretaker",
+    caretaker: "User",
     status: "Pending",
   },
   {
@@ -105,7 +105,7 @@ export const medicineData = [
     resident: "Mrs. Meena Shah",
     dosage: "1 tablet",
     scheduledTime: "12:30 PM",
-    caretaker: "Caretaker",
+    caretaker: "User",
     status: "Delivered",
   },
   {
@@ -114,7 +114,7 @@ export const medicineData = [
     resident: "Mr. Rajesh Patel",
     dosage: "1 tablet",
     scheduledTime: "08:00 PM",
-    caretaker: "Caretaker",
+    caretaker: "User",
     status: "Scheduled",
   },
 ];
